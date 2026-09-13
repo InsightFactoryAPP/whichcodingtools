@@ -2,7 +2,7 @@ slug: yylo
 name: YYLO
 description: Command-line orchestrator for coding agents, repeatable workflows, and receipt-backed repository changes. Typed task, validation, merge, and release-readiness boundaries.
 layer: orchestrator
-vendor: yylo-dev
+vendor: JUNO AI
 homepage: https://yylo.dev
 links:
   repo: https://github.com/yylo-dev/yylo
@@ -17,7 +17,7 @@ license:
 models:
   byok: full
   local: false
-  notes: Delegates to the coding agent you install and configure. Pi brings its own provider keys or subscription logins, Claude Code and Codex reuse their existing sign in.
+  notes: Delegates to the coding agent you install and configure. Pi is optional and supports multiple providers; the shipped claude.py and codex.py services wrap the installed Claude Code and Codex CLIs.
 features: [worktrees]
 wraps:
   - tool: pi
@@ -29,12 +29,12 @@ wraps:
     via: cli
     uses_subscription: true
     min_tier: free
-    notes: yy cc runs your installed Claude Code with its existing login.
+    notes: claude.py service, "A wrapper for Anthropic Claude CLI with configurable options" (src/templates/services/README.md).
   - tool: codex-cli
     via: cli
     uses_subscription: true
     min_tier: free
-    notes: Codex model aliases are subagent-specific, separate from the Pi ones.
+    notes: codex.py service, "A wrapper for OpenAI Codex CLI with configurable options" (src/templates/services/README.md).
 pricing:
   tiers:
     - id: free
@@ -48,7 +48,13 @@ status: active
 sources:
   - url: https://github.com/yylo-dev/yylo
     verified_at: 2026-09-13
-    covers: [pricing, license, platforms, features, wraps, models, general]
-  - url: https://www.npmjs.com/package/@yylo/cli
+    covers: [pricing, license, features, models, general]
+  - url: https://github.com/yylo-dev/yylo/blob/main/src/templates/services/README.md
     verified_at: 2026-09-13
-    covers: [pricing, platforms, general]
+    covers: [wraps]
+  - url: https://yylo.dev
+    verified_at: 2026-09-13
+    covers: [general]
+  - url: https://github.com/yylo-dev/yylo/blob/main/package.json
+    verified_at: 2026-09-13
+    covers: [platforms]
