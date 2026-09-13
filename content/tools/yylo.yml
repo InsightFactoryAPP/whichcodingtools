@@ -1,0 +1,54 @@
+slug: yylo
+name: YYLO
+description: Command-line orchestrator for coding agents, repeatable workflows, and receipt-backed repository changes. Typed task, validation, merge, and release-readiness boundaries.
+layer: orchestrator
+vendor: yylo-dev
+homepage: https://yylo.dev
+links:
+  repo: https://github.com/yylo-dev/yylo
+platforms: [macos, linux, windows]
+install:
+  - method: npm
+    command: npm install --global '@yylo/cli@latest'
+license:
+  spdx: MIT
+  kind: open-source
+  repo: https://github.com/yylo-dev/yylo
+models:
+  byok: full
+  local: false
+  notes: Delegates to the coding agent you install and configure. Pi brings its own provider keys or subscription logins, Claude Code and Codex reuse their existing sign in.
+features: [worktrees]
+wraps:
+  - tool: pi
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: yy pi runs the installed Pi coding agent with its own provider configuration.
+  - tool: claude-code
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: yy cc runs your installed Claude Code with its existing login.
+  - tool: codex-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Codex model aliases are subagent-specific, separate from the Pi ones.
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      limits:
+        - You pay the agent or model provider you configure
+  notes: YYLO has no paid plan.
+status: active
+sources:
+  - url: https://github.com/yylo-dev/yylo
+    verified_at: 2026-09-13
+    covers: [pricing, license, platforms, features, wraps, models, general]
+  - url: https://www.npmjs.com/package/@yylo/cli
+    verified_at: 2026-09-13
+    covers: [pricing, platforms, general]
