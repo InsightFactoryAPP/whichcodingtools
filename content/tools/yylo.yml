@@ -2,11 +2,11 @@ slug: yylo
 name: YYLO
 description: Command-line orchestrator for coding agents, repeatable workflows, and receipt-backed repository changes. Typed task, validation, merge, and release-readiness boundaries.
 layer: orchestrator
-vendor: JUNO AI
+vendor: JUNO AI INC.
 homepage: https://yylo.dev
 links:
   repo: https://github.com/yylo-dev/yylo
-platforms: [macos, linux, windows]
+platforms: [macos, linux]
 install:
   - method: npm
     command: npm install --global '@yylo/cli@latest'
